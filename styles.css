@@ -247,3 +247,95 @@ footer {
 .nav-active {
     display: flex;
 }
+/* Existing Navigation Styles */
+.navbar {
+    /* your existing styles */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    position: relative; /* Important for dropdown positioning */
+}
+
+/* Dropdown Menu Styles */
+.dropdown .dropdown-toggle::after {
+    content: ' ▼';
+    font-size: 12px;
+}
+
+.dropdown-menu {
+    display: none; /* Hide the dropdown by default */
+    position: absolute;
+    top: 100%; /* Position below the parent li */
+    left: 0;
+    background-color: #fff;
+    min-width: 150px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-radius: 5px;
+}
+
+.dropdown-menu li {
+    display: block;
+}
+
+.dropdown-menu a {
+    padding: 10px 15px;
+    display: block;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f4f4f4;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Mobile Navigation Adjustments */
+@media screen and (max-width: 768px) {
+    /* Adjusting nav-links for mobile */
+    .nav-links {
+        flex-direction: column;
+        background: #fff;
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        width: 50%;
+        height: calc(100% - 80px);
+        transition: right 0.3s ease-in;
+    }
+
+    .nav-links.nav-active {
+        right: 0;
+    }
+    
+    /* Remove hover effect for mobile and enable click event */
+    .dropdown:hover .dropdown-menu {
+        display: none;
+    }
+
+    .dropdown .dropdown-toggle::after {
+        content: ' ▼';
+        font-size: 12px;
+    }
+
+    /* Dropdown Menu for Mobile */
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+    }
+}
+/* For mobile dropdown */
+.dropdown-menu.show {
+    display: block;
+}
