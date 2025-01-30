@@ -14,3 +14,22 @@ function navigateToPage() {
     }
 }
 </script>
+// Mobile Navigation
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+// Toggle Nav
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('nav-active');
+});
+
+// Dropdown Toggle for Mobile
+const dropdownToggle = document.querySelector('.dropdown-toggle');
+
+dropdownToggle.addEventListener('click', (e) => {
+    // Prevent default link behavior
+    e.preventDefault();
+    // Toggle display of dropdown menu
+    const dropdownMenu = dropdownToggle.nextElementSibling;
+    dropdownMenu.classList.toggle('show');
+});
